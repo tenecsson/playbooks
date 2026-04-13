@@ -21,9 +21,11 @@ Workflow:
 
 Rules:
 - Use `using-git-worktrees` before starting.
+- Do not start implementation on `main` or `master`.
 - Do not make implementers read the plan file; give them the task text directly.
-- Do not run multiple implementers in parallel in the same workspace.
+- Parallel implementers are allowed only when each has an isolated worktree.
 - Do not skip re-review loops.
+- Do not integrate or move past a task while its spec or code-quality review findings remain open.
 - Spec review must pass before code-quality review starts.
 - Before code-quality review, make sure `BASE_SHA` and `HEAD_SHA` are well-defined, usually by committing the task work.
 - Use `test-driven-development` inside implementation tasks.

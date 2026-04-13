@@ -14,6 +14,7 @@ Authoring loop:
 4. REFACTOR: tighten loopholes exposed by later failures.
 
 Authoring rules:
+- Do not create or edit a skill until a failing pressure scenario exists.
 - Frontmatter supports only `name` and `description`.
 - `description` must say when to use the skill, not summarize its workflow.
 - Start descriptions with `Use when...`.
@@ -23,6 +24,7 @@ Authoring rules:
 - Match the house style of `playbooks`: terse trigger conditions, hard rules, compact workflow, and sidecars only when they save tokens.
 - Put reusable prompts or heavy reference in sidecar files only when that saves tokens on normal loads.
 - Remove narrative history, duplicated reminders, and long examples.
+- When changing multiple skills, verify each skill individually before moving on.
 
 A good skill contains only:
 - trigger conditions

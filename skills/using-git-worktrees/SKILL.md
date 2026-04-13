@@ -16,6 +16,7 @@ Rules:
 - Create a new branch with the worktree; do not work directly on `main` or `master` without explicit consent.
 - Run the repo's normal bootstrap or dependency install in the new worktree.
 - Verify the new worktree starts from a clean, passing baseline before making changes.
+- If baseline verification fails, stop and ask before making changes.
 
 Minimum sequence:
 1. determine the location

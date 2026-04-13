@@ -24,6 +24,7 @@ Workflow:
 7. If execution still needs a multi-step plan, switch to `writing-plans`. Otherwise implement directly.
 
 Principles:
+- Do not implement while material design questions remain open.
 - Resolve real uncertainty, not imaginary uncertainty.
 - Use the lightest process that closes the gap.
 - Cut unneeded features early.
