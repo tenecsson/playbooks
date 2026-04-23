@@ -6,10 +6,10 @@ description: Use when feature work needs an isolated workspace or before executi
 Create an isolated worktree before substantive feature work.
 
 Directory selection order:
-1. existing `.worktrees/`
-2. existing `worktrees/`
-3. repo instructions that name a worktree location
-4. otherwise ask the user to choose between `.worktrees/` and `~/.config/playbooks/worktrees/<project>/`
+1. repo instructions that name a worktree location
+2. existing `.worktrees/` in the repo root
+3. existing `worktrees/` in the repo root
+4. otherwise make `.worktrees/` in the repo root
 
 Rules:
 - If using a repo-local worktree directory, verify it is ignored by git. If it is not ignored, fix that before creating the worktree.
