@@ -6,8 +6,8 @@ The goal is simple: keep the parts that actually change model behavior, and stri
 
 What stays:
 - reusable skill names and trigger conditions
-- hard rules that constrain behavior
-- compact workflows and output contracts
+- decision criteria and real invariants that improve outcomes
+- compact workflows only where ordering matters
 - sidecar files only when on-demand loading is cheaper
 
 What goes:
@@ -15,6 +15,7 @@ What goes:
 - narrative rationale
 - repeated reminders
 - bulky examples that waste prompt budget
+- mandatory tests, reviews, worktrees, checkpoints, or approvals without a concrete need
 
 Repo shape:
 - `skills/<name>/SKILL.md`: the skill itself

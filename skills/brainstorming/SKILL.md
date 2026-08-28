@@ -1,30 +1,19 @@
 ---
 name: brainstorming
-description: Use when requirements, product choices, or technical approach are still underdefined and you need a design before implementation
+description: Use when a request has material product, behavior, or architecture choices that must be resolved before implementation
 ---
 
-Turn an open request into an approved design before coding.
+Resolve the uncertainty that would materially change the result.
 
-Use this when:
-- success criteria, constraints, or tradeoffs are still unclear
-- the user wants help choosing architecture, behavior, or scope
+1. Inspect enough context to identify the real decision.
+2. Ask only questions whose answers change the approach. Group closely related questions when that is faster for the user.
+3. Present the viable options and tradeoffs; recommend one.
+4. Get agreement on material, hard-to-reverse choices, then implement or plan.
 
-Do not use this when:
-- an approved design or implementation plan already exists
-- the request is status, review, or verification only
-- the patch is narrow and the desired behavior is already specified
+Do not pause for:
+- reversible implementation details
+- choices already settled by repository conventions or an approved plan
+- narrow patches with clear behavior
+- speculative edge cases that do not affect the current decision
 
-Workflow:
-1. Scan only the context needed to understand the problem.
-2. Ask one clarifying question at a time. Prefer multiple choice when it genuinely helps.
-3. If the design is open, present 2-3 approaches with tradeoffs and a recommendation. If it is bounded, present one recommended approach.
-4. Describe the design at the right level: architecture, data flow, edge cases, and tests.
-5. Get approval before implementation.
-6. Write `docs/plans/YYYY-MM-DD-<topic>-design.md` only if the design needs durable reuse, review, or handoff.
-7. If execution still needs a multi-step plan, switch to `writing-plans`. Otherwise implement directly.
-
-Principles:
-- Do not implement while material design questions remain open.
-- Resolve real uncertainty, not imaginary uncertainty.
-- Use the lightest process that closes the gap.
-- Cut unneeded features early.
+Create a durable design document only when the user requests one or the decision needs handoff, later review, or long-term preservation.

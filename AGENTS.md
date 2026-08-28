@@ -5,18 +5,13 @@ This repo is a compact library of reusable agent skills. Each skill is a small i
 ## Skills In This Repo
 
 - `brainstorming`: turn an underdefined request into an approved design before implementation.
+- `code-review`: perform or receive risk-based review without mandatory review rounds.
 - `dispatching-parallel-agents`: split independent work across multiple agents without fragmenting tightly coupled problems.
-- `executing-plans`: execute an approved plan in order, with verification checkpoints instead of re-planning.
-- `finishing-a-development-branch`: decide whether to merge, open a PR, keep, or discard a branch after fresh verification.
-- `receiving-code-review`: verify review feedback technically before applying it or pushing back.
-- `requesting-code-review`: ask for focused review while changes are still cheap to fix.
-- `subagent-driven-development`: execute an existing plan with fresh subagents per task and review gates between tasks.
+- `implementation-quality`: choose proportionate tests and verification while rejecting brittle or tautological tests.
+- `improve-coverage`: increase meaningful behavioral coverage without chasing the percentage.
+- `planning-and-execution`: create durable plans when useful and execute approved plans without mandatory pauses.
 - `systematic-debugging`: find root cause before proposing or applying fixes.
-- `test-driven-development`: write the failing test first, then the smallest production change.
-- `using-git-worktrees`: isolate feature work in a separate worktree before substantive changes.
-- `using-playbooks`: load the minimum relevant skill set before exploring, planning, or coding.
-- `verification-before-completion`: gather fresh evidence before claiming something is fixed or complete.
-- `writing-plans`: produce short, executable, verification-driven plans.
+- `using-git-worktrees`: isolate work only when parallelism, experimentation, or risk justifies it.
 - `writing-skills`: author or revise skills so they stay concise, discoverable, and behavior-changing.
 
 ## Skill Shape
@@ -31,8 +26,8 @@ The description is a trigger sentence, not a summary. Start it with `Use when...
 
 A good skill contains only:
 - trigger conditions
-- hard rules
-- workflow
+- decision criteria and real invariants
+- a workflow only when sequencing matters
 - output contract
 - minimal references
 
@@ -44,9 +39,11 @@ Write for capable models. Be direct. Do not coach, flatter, or over-explain.
 
 House rules:
 - keep trigger conditions terse and easy to match
-- prefer hard rules over soft suggestions
-- make workflows compact and executable
+- assume capable models; do not restate generic engineering behavior
+- prefer risk-based decision criteria over mandatory ceremony
+- use hard rules only for safety, authorization, correctness invariants, or proven recurring failures
 - include the terms a future model would search for: symptoms, triggers, tools, and error language
+- preserve explicit user choices and do not infer worktrees, tests, reviews, commits, or pauses from ordinary implementation
 - remove narrative history, duplicated reminders, and long examples
 - keep always-loaded skills very short
 - add sidecar prompts or references only when they save tokens in normal use
@@ -55,12 +52,6 @@ The style target is the same across the repo: concise instructions that material
 
 ## How To Author A New Skill
 
-Treat skill authoring as TDD for instructions.
+Create a skill only for reusable, non-obvious judgment. Start from evidence such as observed sessions, repeated user corrections, a concrete failure, or a realistic high-risk scenario. Existing evidence is enough; do not require synthetic pressure runs for ordinary edits.
 
-Authoring loop:
-1. RED: run a pressure scenario without the skill and capture the failure or rationalization.
-2. GREEN: write the smallest skill that blocks that failure.
-3. VERIFY: rerun the scenario and confirm the skill changes behavior.
-4. REFACTOR: tighten loopholes exposed by later failures.
-
-Only create a skill when the pattern is reusable, non-obvious, and depends on judgment. Do not create skills for one-off fixes or project-local conventions.
+Write the smallest guidance that changes the bad decision. Validate structure after editing, and forward-test behavior only when uncertainty or risk justifies the added inference cost. Judge observable outcomes, not wording conformity.

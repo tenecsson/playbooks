@@ -3,36 +3,18 @@ name: systematic-debugging
 description: Use when any bug, failing test, build break, or unexpected behavior needs root-cause analysis before fixes
 ---
 
-Do not propose fixes before you understand the cause.
+Find evidence for the cause before committing to a fix.
 
-Process:
-1. Evidence
-   - read the actual error
-   - reproduce the issue
-   - inspect recent changes
-   - if the system has multiple layers, instrument component boundaries so you can see where data, config, or state stops matching expectations
-   - trace bad values backward to their source
-2. Pattern
-   - find a working example or reference
-   - compare working and broken behavior line by line
-   - list the real differences and dependencies
-3. Hypothesis
-   - state one concrete hypothesis
-   - run the smallest experiment that can confirm or reject it
-   - if it fails, discard it and form a new one; do not stack fixes
-4. Fix
-   - create a failing reproduction test or script
-   - fix the root cause, one change at a time
-   - for flaky async/tests, replace arbitrary sleeps with waits on the actual condition unless timing itself is what you are testing
-   - after invalid-data or invalid-state bugs, add validation at each layer the bad data crosses so the bug is harder to reintroduce
-   - rerun verification
+1. Observe the actual failure. Reproduce it when feasible and inspect the relevant state, logs, recent changes, and boundaries.
+2. Trace the bad value or transition toward its source. Compare with a working path when that will discriminate causes.
+3. Form one concrete hypothesis and run the smallest useful experiment. Do not stack speculative fixes.
+4. Fix the root cause and run verification that exercises the observed failure and nearby behavior.
 
-Rules:
-- No fixes without root-cause investigation first.
-- No bundled "while I'm here" changes.
-- If three fix attempts have failed, stop and question the architecture with the user before trying a fourth.
-- If investigation shows the issue is external, timing-dependent, or environmental, document the evidence and add appropriate handling or monitoring instead of pretending you found an internal cause.
+Use judgment:
+- A minimal diagnostic or safe reversible fix may be the fastest experiment; do not turn investigation into ceremony.
+- Add a regression test only when it protects a plausible recurrence through a stable boundary. A reproduction script, targeted command, or manual check may be better for visual, environmental, or integration failures.
+- For async failures, wait on the relevant condition unless timing is the behavior under test.
+- Add validation where it establishes a useful contract, not automatically at every layer.
+- Reassess the architecture or ask the user when evidence stops producing progress; there is no fixed attempt count.
 
-Related skills:
-- `test-driven-development`
-- `verification-before-completion`
+Avoid unrelated cleanup. If the cause is external or environmental, report that evidence and add handling or monitoring only when it is in scope.
