@@ -10,6 +10,7 @@ This repo is a compact library of reusable agent skills. Each skill is a small i
 - `implementation-quality`: choose proportionate tests and verification while rejecting brittle or tautological tests.
 - `improve-coverage`: increase meaningful behavioral coverage without chasing the percentage.
 - `planning-and-execution`: create durable plans when useful and execute approved plans without mandatory pauses.
+- `supervised-subagent`: delegate implementation to one child and supervise revisions until acceptance.
 - `systematic-debugging`: find root cause before proposing or applying fixes.
 - `using-git-worktrees`: isolate work only when parallelism, experimentation, or risk justifies it.
 - `writing-skills`: author or revise skills so they stay concise, discoverable, and behavior-changing.
